@@ -253,6 +253,7 @@ public final class NioEventLoop extends SingleThreadEventLoop {
         return provider;
     }
 
+    // mpsc  multi - product - single - consumer
     @Override
     protected Queue<Runnable> newTaskQueue(int maxPendingTasks) {
         // This event loop never calls takeTask()

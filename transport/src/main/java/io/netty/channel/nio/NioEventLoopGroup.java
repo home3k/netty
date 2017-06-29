@@ -40,6 +40,7 @@ public class NioEventLoopGroup extends MultithreadEventLoopGroup {
      * the {@link SelectorProvider} which is returned by {@link SelectorProvider#provider()}.
      */
     public NioEventLoopGroup() {
+        // 默认设置为0， 后面有逻辑
         this(0);
     }
 

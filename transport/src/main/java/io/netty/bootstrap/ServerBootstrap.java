@@ -141,6 +141,7 @@ public class ServerBootstrap extends AbstractBootstrap<ServerBootstrap, ServerCh
     void init(Channel channel) throws Exception {
         final Map<ChannelOption<?>, Object> options = options0();
         synchronized (options) {
+            // 设置 channel options
             setChannelOptions(channel, options, logger);
         }
 
