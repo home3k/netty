@@ -167,6 +167,12 @@ public final class NioEventLoop extends SingleThreadEventLoop {
         }
     }
 
+    /**
+     * 特意提供一种wrapped selector。 进行了性能优化， 具体优化的过程 似乎就是更换了selectionKeySet。
+     * 优化后的set使用了SelectedSelectionKeySet，使用数组实现set(我记得之前的版本是用两个数组，然后进行flip)，
+     * 这样，长时间运行后，插入set的复杂度为O(1)
+     * @return
+     */
     private SelectorTuple openSelector() {
         final Selector unwrappedSelector;
         try {
